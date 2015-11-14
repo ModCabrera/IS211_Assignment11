@@ -54,14 +54,17 @@
     
      <table border="1" style="width:100%">
       <tr>
-        <td>{{task}}</td>
-        <td>{{email}}</td> 
-        <td>{{priority}}</td>
+      <td>{% for email in emails %}
+      <li>{{ email }}</li>
+      {% endfor %}
+      </td>
+        <td>Buy Egg</td> 
+        <td>Low</td>
       </tr>
       <tr>
-        <td>{{task}}</td>
-        <td>{{email}}</td> 
-        <td>{{priority}}</td>
+        <td>{{ task }}</td>
+        <td>{{ email }}</td> 
+        <td>{{ priority }}</td>
       </tr>
     </table>
 
