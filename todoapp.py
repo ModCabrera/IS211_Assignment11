@@ -5,8 +5,8 @@
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
+email_adresses = [] #email output
 tasks = []
-emails = []
 priorities = []
 
 @app.route('/')
@@ -17,13 +17,16 @@ def hello_world():
 @app.route('/submit', methods= ['POST'])
 def submit():
     task = request.form['task']
-    tasks.append(task)
     priority = request.form['priority']
-    priorities.append(priority)
     email = request.form['email']
-    emails.append(email)
-    return redirect('/')
+    email_adresses.append(email)
+    tasks.append(task)
+    priorities.append(priority)
+    return render_template('index.html',
+                           email_adresses=email_adresses,
+                           tasks=tasks,
+                           priorities=priorities)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
