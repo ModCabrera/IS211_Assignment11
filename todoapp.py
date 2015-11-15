@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """To Do List Flask Application"""
+
 import re
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
